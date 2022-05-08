@@ -39,11 +39,19 @@ public class MergeSort {
         }
     }
 
-    public static <T> T[] getSorted(T[] array, Comparator<? super T> comp) {
-        return array;
+    public static <T> void sort(T[] array, Comparator<? super T> comp) {
+        mergeSort(array, comp, 0, array.length - 1);
     }
 
-    public static <T> void sort(T[] array, Comparator<? super T> comp) {
-        array = getSorted(array, comp);
+    static <T> void mergeSort(T[] array, Comparator<? super T> comp, int startIndex, int lastIndex) {
+
+        if (startIndex >= lastIndex) {
+            return;
+        }
+        int separatingIndex = (startIndex + lastIndex) / 2;
+
+        mergeSort(array,comp, startIndex, separatingIndex);
+        mergeSort(array,comp, separatingIndex + 1, lastIndex);
+        merge(startIndex, separatingIndex, lastIndex, array, comp);
     }
 }
