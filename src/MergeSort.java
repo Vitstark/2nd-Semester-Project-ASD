@@ -14,12 +14,11 @@ public class MergeSort {
             if (comp.compare(array[i], array[j]) < 0) {
                 sortedSubArray[k] = array[i];
                 i++;
-                k++;
             } else {
                 sortedSubArray[k] = array[j];
                 j++;
-                k++;
             }
+            k++;
         }
 
         while (i <= mediumIndex) {
@@ -35,7 +34,7 @@ public class MergeSort {
         }
 
         for (int l = startIndex; l <= finishIndex; l++) {
-            array[l] = sortedSubArray[l];
+            array[l] = sortedSubArray[l - startIndex];
         }
     }
 
