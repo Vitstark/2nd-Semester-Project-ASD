@@ -1,5 +1,6 @@
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 public class MergeSort {
 
@@ -42,4 +43,7 @@ public class MergeSort {
         return array;
     }
 
+    public static <T> void sort(T[] array, Comparator<? super T> comp) {
+        array = getSorted(array, comp);
+    }
 }
