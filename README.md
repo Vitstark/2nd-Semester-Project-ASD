@@ -12,6 +12,7 @@ Merge sort - сортировка, основывающаяся на двух о
 
 ![__icycp4olpdm4lerf6icxkwixi](https://user-images.githubusercontent.com/89994306/167467673-41bdd4b7-275f-44dd-b12c-9615c0b97a26.gif)
 
+Проделываем эти шаги рекусрионно
 ### PROFIT!!!
 
 ![Merge Sort](https://user-images.githubusercontent.com/89994306/167467842-5b45eb05-7719-4ea5-a96e-a857308ad400.gif)
