@@ -1,6 +1,6 @@
 # Merge Sort
 ## 2nd-Semester-Project-ASD
-[Видео](89N3PDyZzakoH7W6n8ZrjGDDktjh8iWFG6eKRvi3kvpQ)
+[Видео](https://www.youtube.com/watch?v=7hbwZ6g6hP4)
 
 Merge sort - сортировка, основывающаяся на двух основных идеях: 1) Принципе "разделяй и властвуй" - разбиение задачи на две подзадачи меньшего размера, 2) слияние двух отсортированных массивов.
 
