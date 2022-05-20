@@ -1,22 +1,30 @@
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Random;
+import java.util.*;
 
 public class Main {
 
+    int dist(String file1, String file2) {
+        int numberOfWords = 0;
+        String [] word1 = file1.split("\b");
+        String [] word2 = file2.split("\b");
+        for (int i = 0; i < word1.length; i++) {
+            for (int j = 0; j < word2.length; j++) {
+                if (word1[i].equals(word2[j])) {
+                    numberOfWords++;
+                }
+            }
+        }
+        return numberOfWords;
+    }
+
     public static void main(String[] args) {
-	// write your code here
-        Random random = new Random();
-        Integer [] integers = new Integer[20];
-        for (int i = 0; i < 20; i++) {
-            integers[i] = random.nextInt(30) - 15;
+        Integer [] array = new Integer[50];
+        for (Integer i = 49; i >= 0; i--) {
+            array[i] = i;
         }
 
-        System.out.println(Arrays.toString(integers));
+        MergeSort.parallelSort(array, (x,y) -> x.compareTo(y));
 
-        MergeSort.sort(integers, (x,y) -> x - y);
-
-        System.out.println(Arrays.toString(integers));
+        System.out.println(Arrays.toString(array));
 
     }
 }

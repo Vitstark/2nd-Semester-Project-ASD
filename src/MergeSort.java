@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -9,7 +10,7 @@ public class MergeSort {
         int i = startIndex;
         int j = separatingIndex + 1;
         int k = 0;
-        T [] sortedSubArray = (T[]) new Object[lastIndex - startIndex + 1];
+        T[] sortedSubArray = (T[]) new Object[lastIndex - startIndex + 1];
         while (i <= separatingIndex && j<= lastIndex) {
             if (comp.compare(array[i], array[j]) < 0) {
                 sortedSubArray[k] = array[i];
@@ -50,12 +51,30 @@ public class MergeSort {
         merge(startIndex, separatingIndex, lastIndex, array, comp);
     }
 
+    private static int getMaxDeep() {
+        int numberOfThreads = Runtime.getRuntime().availableProcessors();
+        int maxDeep = 0;
+        while (numberOfThreads > 1) {
+            numberOfThreads /= 2;
+            maxDeep++;
+        }
+        return maxDeep;
+    }
+
+    public static <T> void parallelSort(T[] array, Comparator<? super T> comp) {
+        int maxDeep = getMaxDeep();
+        System.out.println(maxDeep);
+        ParallelMergeSort<T> parallelSort = new ParallelMergeSort<>(
+                array, comp, 0, array.length - 1, 0, maxDeep);
+        parallelSort.run();
+    }
+
     public static <T> void sort(T[] array, Comparator<? super T> comp) {
         mergeSort(array, comp, 0, array.length - 1);
     }
 
     public static <T> void sort(List<T> list, Comparator<T> comp) {
-        T [] array = (T[]) new Object[list.size()];
+        T[] array = (T[]) new Object[list.size()];
         sort(list.toArray(array), comp);
     }
 
