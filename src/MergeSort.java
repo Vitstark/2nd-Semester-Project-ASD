@@ -63,7 +63,6 @@ public class MergeSort {
 
     public static <T> void parallelSort(T[] array, Comparator<? super T> comp) {
         int maxDeep = getMaxDeep();
-        System.out.println(maxDeep);
         ParallelMergeSort<T> parallelSort = new ParallelMergeSort<>(
                 array, comp, 0, array.length - 1, 0, maxDeep);
         parallelSort.run();

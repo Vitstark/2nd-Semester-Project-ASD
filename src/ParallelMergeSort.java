@@ -31,7 +31,7 @@ public class ParallelMergeSort<T> extends Thread {
                 comp, startIndex, separatingIndex, ++deep, maxDeep);
 
         ParallelMergeSort thread2 = new ParallelMergeSort<>(array,
-                comp, separatingIndex + 1, lastIndex, ++deep, maxDeep);
+                comp, separatingIndex + 1, lastIndex, deep, maxDeep);
 
         if (deep < maxDeep) {
             thread1.start();
